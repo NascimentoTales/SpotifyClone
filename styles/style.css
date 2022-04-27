@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+}
+
+* li {
+  list-style: none;
+}
+
+* a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: gray;
+}
+
+body .container {
+  margin-bottom: 10px;
+}
+
+body .container .styleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .container .styleContainer .style {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+body .container .colection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 20px;
+}
+
+body .container .colection .cd {
+  margin-right: 10px;
+}
+
+body .container .colection .image {
+  width: 100px;
+  height: 100px;
+}
+
+body .container .colection .image img {
+  width: 100%;
+  height: 100%;
+}
+
+body .container .colection .singer {
+  font-size: 1rem;
+}
+/*# sourceMappingURL=style.css.map */
