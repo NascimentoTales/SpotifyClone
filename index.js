@@ -128,7 +128,6 @@ function playCd(openCd) {
 
     for (let index = 0; index < arrayAudios[0].length; index++) {
        
-
         arrayAudios.forEach(audio => {
 
             const button = document.createElement('button')
@@ -138,32 +137,34 @@ function playCd(openCd) {
             
             containerMusicsElement.appendChild(button)
 
+
             button.addEventListener("click", () =>{
                 let play = document.getElementById(audio[index]);
-                
-                // stopMusic(arrayAudios)
 
-                play.play();
-
+                stopMusics();
+                play.play()
             })
+
+            function stopMusics() {
+
+                let audios = document.querySelectorAll('audio')
+                audios.forEach(audio=>{
+                    audio.pause()
+                    audio.currentTime = 0
+
+                })
+            }
         });
     }
     
+
     body.appendChild(containerCdElement)
     containerCdElement.appendChild(containerImagem)
     containerImagem.appendChild(image)
     containerCdElement.appendChild(containerMusicsElement)    
-
-    
 }
 
-// function stopMusic(arrayAudios) {
+function stopMusics() {
 
-//     arrayAudios.forEach(audio => {
-        
-//         console.log(audio);
-//         // audio.pause()
-//         // currentTime = 0
-//     })    
-    
-// }
+
+}

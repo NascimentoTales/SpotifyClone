@@ -39,7 +39,7 @@ body{
             // border: 1px solid;
             display: flex;
             flex-direction: row;
-            margin-left: 10px;
+            margin-left: 20px;
             margin-bottom: 10px;
             position: relative;
 
@@ -58,7 +58,7 @@ body{
                 color: $textColorArrowHover;
             }
             .left{
-                left: 0;
+                left: -20px;
             }
             .right{
                 right: 0;

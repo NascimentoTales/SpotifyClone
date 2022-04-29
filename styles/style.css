@@ -54,7 +54,7 @@ body .container .collection {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-left: 10px;
+  margin-left: 20px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -80,7 +80,7 @@ body .container .collection .left:hover, body .container .collection .right:hove
 }
 
 body .container .collection .left {
-  left: 0;
+  left: -20px;
 }
 
 body .container .collection .right {
