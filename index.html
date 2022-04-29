@@ -10,9 +10,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e2db12833c.js" crossorigin="anonymous"></script>
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              }      
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        };
+        </script>
     <title>Spotfy Clone</title>
 </head>
 <body>
+    <div w3-include-html="musics.html"></div> 
+
     <!-- <i class="fa-solid fa-angle-left"></i> -->
     <!-- <h1>Spotify Clone</h1> -->
     
@@ -38,30 +69,12 @@
             <audio src="" id="">audio1</audio><button class="button">Música1</button>
             <audio src="" id="">audio1</audio><button class="button">Música1</button>
             <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
-            <audio src="" id="">audio1</audio><button class="button">Música1</button>
         </div> -->
     <!-- </div> -->
-
-    <audio src="musics/Nome da Música1.mp3" id="Nome da Música1"></audio>
-    <audio src="musics/Nome da Música2.mp3" id="Nome da Música2"></audio>
-    <audio src="musics/Nome da Música3.mp3" id="Nome da Música3"></audio>
-    <audio src="musics/Música1.mp3" id="Música1"></audio>
-    <audio src="musics/Música2.mp3" id="Música2"></audio>
-    <audio src="musics/Música3.mp3" id="Música3"></audio>
-
+    
+    <script>
+        includeHTML();
+    </script>
 
     <script src="musicas.js"></script>
     <script src="index.js"></script>

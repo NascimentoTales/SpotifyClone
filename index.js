@@ -1,13 +1,13 @@
 const body = document.querySelector('body')
 body.style.overflowX = "hidden"
 
+
 init()
 
 function init() {
     const h1 = document.createElement('h1')
     h1.classList.add('h1')
     h1.innerHTML = "Spotify"
-
 
     body.appendChild(h1)
 
@@ -31,9 +31,6 @@ function creatHtml() {
 
         const collectionElement = document.createElement('div')
         collectionElement.classList.add('collection')
-
-        // const arrowContainer = document.createElement('div')
-        // arrowContainer.classList.add('arrowContainer')
 
         const arrowLeft = document.createElement('i')
         arrowLeft.classList.add('fa-solid')
@@ -69,7 +66,6 @@ function creatHtml() {
             pElement.innerHTML = song["play"] 
 
             const musica = document.createElement('input')
-            // musica.
             musica.classList.add('musics')
             musica.value = song["musicas"];
 
@@ -82,23 +78,17 @@ function creatHtml() {
             containerPaiSinger.appendChild(h3Element)
             containerPaiSinger.appendChild(musica)
 
-            console.log(containerPaiSinger);
         })
-
 
         body.appendChild(containerElement)
         containerElement.appendChild(containerStyleElement)
-        containerElement.appendChild(collectionElement)
-                
+        containerElement.appendChild(collectionElement)                
+        
         collectionElement.appendChild(arrowLeft)
         collectionElement.appendChild(arrowRight)
         
         containerStyleElement.appendChild(h2Element)
-
-        // console.log(containerElement);
-
     }
-
 }
 
 function chooseMusic() {
@@ -119,8 +109,6 @@ function playCd(openCd) {
 
     let audio = openCd[2].querySelector('input').value
 
-    // console.log(openCd);
-
     let arrayAudios = []
 
     arrayAudios.push(audio.split(","))
@@ -138,8 +126,6 @@ function playCd(openCd) {
     const containerMusicsElement = document.createElement('div')
     containerMusicsElement.classList.add('containerMusics')
 
-    // console.log(arrayAudios[0].length);
-
     for (let index = 0; index < arrayAudios[0].length; index++) {
        
 
@@ -149,13 +135,16 @@ function playCd(openCd) {
             button.classList.add('button')
             button.innerHTML = audio[index]
             button.id = audio[index]
-            console.log(button);
             
             containerMusicsElement.appendChild(button)
 
-            button.addEventListener("click", (e) =>{
+            button.addEventListener("click", () =>{
+                let play = document.getElementById(audio[index]);
+                
+                // stopMusic(arrayAudios)
 
-                tocar(e.target);
+                play.play();
+
             })
         });
     }
@@ -165,12 +154,16 @@ function playCd(openCd) {
     containerImagem.appendChild(image)
     containerCdElement.appendChild(containerMusicsElement)    
 
-    console.log(containerCdElement);
     
 }
 
-function tocar(e) {
+// function stopMusic(arrayAudios) {
 
-    let play = document.getElementById(e.id);
-    play.play();
-}
+//     arrayAudios.forEach(audio => {
+        
+//         console.log(audio);
+//         // audio.pause()
+//         // currentTime = 0
+//     })    
+    
+// }

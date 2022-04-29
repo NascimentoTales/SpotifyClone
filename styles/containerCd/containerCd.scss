@@ -1,8 +1,8 @@
 @import '../colors/colors.scss';
 
 .containerCd{
-    background-color: aqua;
-    height: 100vh;
+    background-color: $backGroundColor;
+    height: 100%;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     .containerMusics{
         display: flex;
         flex-direction: column;
-        // background-color: blueviolet;
+        background-color: $backGroundColor;
         // height: 100px;
         // width: 100px;
 
@@ -30,6 +30,7 @@
             margin: 3px auto;
             padding: 10px;
             color: black;
+            text-align: left;
         }
     }
 }
