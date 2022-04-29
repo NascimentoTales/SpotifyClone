@@ -3,8 +3,9 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+  outline: 0;
+  color: white;
 }
 
 * li {
@@ -13,29 +14,39 @@
 
 * a {
   text-decoration: none;
-  color: black;
 }
 
 body {
-  background-color: gray;
+  overflow-x: hidden !important;
+  background-color: #121212;
+}
+
+body .h1 {
+  font-size: 2rem;
+  padding: 10px;
 }
 
 body .container {
-  margin-bottom: 10px;
-}
-
-body .container .styleContainer {
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container .styleContainer {
+  width: 100%;
 }
 
 body .container .styleContainer .style {
   padding: 10px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
-body .container .colection {
+body .container .collection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,24 +54,97 @@ body .container .colection {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
-body .container .colection .cd {
+body .container .collection .left, body .container .collection .right {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.253);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  color: rgba(255, 255, 255, 0.253);
+  background-color: rgba(255, 255, 255, 0.253);
+}
+
+body .container .collection .left:hover, body .container .collection .right:hover {
+  background-color: #fff;
+  color: black;
+}
+
+body .container .collection .left {
+  left: 0;
+}
+
+body .container .collection .right {
+  right: 0;
+}
+
+body .container .collection .cdPai {
   margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #282828;
+  -webkit-box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.301);
+          box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.301);
 }
 
-body .container .colection .image {
-  width: 100px;
-  height: 100px;
+body .container .collection .cdPai .cd {
+  width: 80px;
 }
 
-body .container .colection .image img {
+body .container .collection .cdPai .cd .image {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+body .container .collection .cdPai .cd .image img {
   width: 100%;
   height: 100%;
 }
 
-body .container .colection .singer {
-  font-size: 1rem;
+body .container .collection .cdPai .cd .paiSinger {
+  width: 100%;
+  position: relative;
+}
+
+body .container .collection .cdPai .cd .paiSinger .singer {
+  text-align: center;
+  margin: 5px 0 5px 0;
+  width: 100%;
+  font-size: 0.5rem;
+}
+
+body .container .collection .cdPai .cd .paiSinger .play {
+  border: 1px solid;
+  font-size: 0.7rem;
+  padding: 10px;
+  margin: 2px 0 8px 0;
+  text-align: center;
+  border-radius: 5px;
+  color: aliceblue;
+}
+
+body .container .collection .cdPai .cd .paiSinger .play:hover {
+  opacity: 0.5;
+  background-color: green;
+  cursor: pointer;
+}
+
+body .container .collection .cdPai .cd .paiSinger .play:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+body .container .collection .cdPai .cd .paiSinger .musics {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

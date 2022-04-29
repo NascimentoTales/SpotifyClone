@@ -1,187 +1,146 @@
-const musics = [
-    {
-        style: "Sertanejo",
-        cds : [
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Gusttavo Lima',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'João Gomes',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Tarcisio do Acordeon',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Tarcisio do Acordeon',
-                musicas : ['01', '02', '03']
-            }
-        ]
-    },
-    {
-        style: "Forró",
-        cds : [
-            {
-                capa : 'thumbs/gavoLima.jpg',
-                nome : 'Forro 1',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/guoLima.jpg',
-                nome : 'Foro 2',
-                musicas : ['01', '02', '03']
-            }
-        ]
-    },
-    {
-        style: "Piseiro",
-        cds : [
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 1',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 2',
-                musicas : ['01', '02', '03']
-            }
-        ]
-    },
-    {
-        style: "Pop",
-        cds : [
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 1',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 2',
-                musicas : ['01', '02', '03']
-            }
-        ]
-    },
-    {
-        style: "Samba",
-        cds : [
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 1',
-                musicas : ['01', '02', '03']
-            },
-            {
-                capa : 'thumbs/gusttavoLima.jpg',
-                nome : 'Forro 2',
-                musicas : ['01', '02', '03']
-            }
-        ]
-    }
-]
-
-
 const body = document.querySelector('body')
+body.style.overflowX = "hidden"
 
 init()
 
 function init() {
-    
-    creatContainer()
+    const h1 = document.createElement('h1')
+    h1.classList.add('h1')
+    h1.innerHTML = "Spotify"
+
+
+    body.appendChild(h1)
+
+    creatHtml()
+    chooseMusic()
 }
 
-function creatContainer() {
+function creatHtml() {
     
-    musics.forEach(music =>{
-        const container = document.createElement('div')
-        container.classList.add('container')
-
-        body.appendChild(container)
-    })
-
-    const allContainer = document.querySelectorAll('.container')
-    
-    allContainer.forEach(container =>{
-        const styleContainer = document.createElement('div')
-        styleContainer.classList.add('styleContainer')
-
-        const collection = document.createElement('div')
-        collection.classList.add('collection')
-
-        container.appendChild(styleContainer)
-        container.appendChild(collection)
-
-        console.log(container);
-    })
-
-    const allStyleContainer = document.querySelectorAll('.styleContainer')
-
-
-    allStyleContainer.forEach(styleContainer =>{
-        const h2 = document.createElement('h2')
-        h2.classList.add('style')
+    for (let index = 0; index < datas.length; index++) {
         
-        styleContainer.appendChild(h2)
-    })
+        const containerElement = document.createElement('div')
+        containerElement.classList.add('container')
 
-    const allCollection = document.querySelectorAll('.collection')
+        const containerStyleElement = document.createElement('div')
+        containerStyleElement.classList.add('styleContainer')
 
-    allCollection.forEach(collection => {
-        const cd = document.createElement('div')
-        cd.classList.add('cd')
+        const h2Element = document.createElement('h2')
+        h2Element.classList.add('style')
+        h2Element.innerHTML = datas[index].style
 
+        const collectionElement = document.createElement('div')
+        collectionElement.classList.add('collection')
 
-        collection.appendChild(cd)
-    })
+        // const arrowContainer = document.createElement('div')
+        // arrowContainer.classList.add('arrowContainer')
 
-    const allcd = document.querySelectorAll('.cd')
+        const arrowLeft = document.createElement('i')
+        arrowLeft.classList.add('fa-solid')
+        arrowLeft.classList.add('fa-angle-left')
+        arrowLeft.classList.add('left')
 
-    allcd.forEach(cd => {
-        const img = document.createElement('img')
-        img.classList.add('image')
-
-        const h3 = document.createElement('h3')
-        h3.classList.add('singer')
-        
-        cd.appendChild(img)
-        cd.appendChild(h3)
-    })
-
-    alimentando()
-
-}
-function alimentando() {
+        const arrowRight = document.createElement('i')
+        arrowRight.classList.add('fa-solid')
+        arrowRight.classList.add('fa-angle-right')
+        arrowRight.classList.add('right')
     
-    for (let i = 0; i < musics.length; i++) {
+        datas[index].songs.forEach(song => {
 
-        musics.forEach(music => {
-            const h2 = [...document.querySelectorAll('.style')][i]
+            const cdElementPai = document.createElement('div')
+            cdElementPai.classList.add('cdPai')
 
-            h2.innerHTML = music.style
-            i++
+            const cdElement = document.createElement('div')
+            cdElement.classList.add('cd')
+
+            const containerPaiSinger = document.createElement('div')
+            containerPaiSinger.classList.add('paiSinger')
+
+            const imgElement = document.createElement('img')
+            imgElement.classList.add('image')
+            imgElement.src = song["thumb"]
+
+            const h3Element = document.createElement('h3')
+            h3Element.classList.add('singer')
+            h3Element.innerHTML = song["cantor"] 
+
+            const pElement = document.createElement('p')
+            pElement.classList.add('play')
+            pElement.innerHTML = song["play"] 
+            
+            collectionElement.appendChild(cdElementPai);
+            cdElementPai.appendChild(cdElement)
+            cdElement.appendChild(imgElement)
+            
+            const spanMusics = document.createElement('span')
+            spanMusics.classList.add('musics')
+            spanMusics.innerHTML = song["musicas"] 
+
+            cdElement.appendChild(containerPaiSinger)
+            containerPaiSinger.appendChild(pElement)
+
+            containerPaiSinger.appendChild(h3Element)
+            containerPaiSinger.appendChild(spanMusics)
+
         })
-    }
-    nomeCantor()
-}
 
-
-function nomeCantor() {
-    
-    for (let i = 0; i < 10; i++) {
-
-        musics[0].cds.forEach(nome =>{
-            const h3 = [...document.querySelectorAll('.singer')][i]
+        body.appendChild(containerElement)
+        containerElement.appendChild(containerStyleElement)
+        containerElement.appendChild(collectionElement)
         
-            h3.innerHTML = nome.nome;
-            i++
-        });
+        // collectionElement.appendChild(arrowContainer)
+        
+        collectionElement.appendChild(arrowLeft)
+        collectionElement.appendChild(arrowRight)
+        
+        containerStyleElement.appendChild(h2Element)
+
+        console.log(containerElement);
     }
 }
 
+function chooseMusic() {
+    
+    let cds = document.querySelectorAll('.play')
 
+    cds.forEach(cd => {
+        cd.addEventListener('click', (e) =>{
+            let openCd = e.composedPath();
+            playCd(openCd)
+        } )
+    })
+}
+
+function playCd(openCd) {
+
+    console.log(openCd);
+
+
+    let imagemCd = openCd[2].querySelector('img').src
+
+    let allMusicsSpan = openCd[2].querySelector('span.musics')
+
+    console.log(allMusicsSpan);
+
+    
+    const containerCdElement = document.createElement('div')
+    containerCdElement.classList.add('containerCd')
+
+    const containerImagem = document.createElement('div')
+    containerImagem.classList.add('image')
+
+    const image = document.createElement('img')
+    image.classList.add('img')
+    image.src = imagemCd
+
+    const containerMusicsElement = document.createElement('div')
+    containerMusicsElement.classList.add('containerMusics')
+
+    // body.appendChild(containerCdElement)
+    // containerCdElement.appendChild(containerImagem)
+    // containerImagem.appendChild(image)
+    // containerCdElement.appendChild(containerMusicsElement)
+
+    console.log(containerCdElement);
+    
+}

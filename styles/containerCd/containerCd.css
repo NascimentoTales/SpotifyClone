@@ -1,0 +1,46 @@
+.containerCd {
+  background-color: aqua;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.containerCd .image {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.containerCd .image .img {
+  width: 100%;
+}
+
+.containerCd .containerMusics {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: blueviolet;
+  height: 100px;
+  width: 100px;
+}
+
+.containerCd .containerMusics .button {
+  width: 80%;
+  margin: 3px auto;
+  padding: 10px;
+  color: black;
+}
+/*# sourceMappingURL=containerCd.css.map */
