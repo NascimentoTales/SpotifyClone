@@ -14,13 +14,24 @@ const datas = [
 
             },
             {
-                "cantor": "Zé Neto e Cristiano",
-                "thumb": "thumbs/sertanejo/zenetoeCristiano.jpg",
+                "cantor": "Gusttavo Lima",
+                "thumb": "thumbs/sertanejo/gusttavoLima.jpg",
                 "play" : "Play",
                 "musicas" : [
                     "Nome da Música1",
                     "Nome da Música2",
                     "Nome da Música3"
+                ],
+
+            },
+            {
+                "cantor": "Zé Neto e Cristiano",
+                "thumb": "thumbs/sertanejo/zenetoeCristiano.jpg",
+                "play" : "Play",
+                "musicas" : [
+                    "Música1",
+                    "Música2",
+                    "Música3"
                 ],
             },
             {
@@ -73,7 +84,7 @@ const datas = [
                 "thumb": "thumbs/sertanejo/gusttavoLima.jpg",
                 "play" : "Play",
                 "musicas" : [
-                    "Nome da Música1",
+                    // "Nome da Músicas1",
                     "Nome da Música2",
                     "Nome da Música3"
                 ],

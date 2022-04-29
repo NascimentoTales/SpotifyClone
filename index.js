@@ -67,36 +67,38 @@ function creatHtml() {
             const pElement = document.createElement('p')
             pElement.classList.add('play')
             pElement.innerHTML = song["play"] 
-            
+
+            const musica = document.createElement('input')
+            // musica.
+            musica.classList.add('musics')
+            musica.value = song["musicas"];
+
             collectionElement.appendChild(cdElementPai);
             cdElementPai.appendChild(cdElement)
             cdElement.appendChild(imgElement)
             
-            const spanMusics = document.createElement('span')
-            spanMusics.classList.add('musics')
-            spanMusics.innerHTML = song["musicas"] 
-
             cdElement.appendChild(containerPaiSinger)
             containerPaiSinger.appendChild(pElement)
-
             containerPaiSinger.appendChild(h3Element)
-            containerPaiSinger.appendChild(spanMusics)
+            containerPaiSinger.appendChild(musica)
 
+            console.log(containerPaiSinger);
         })
+
 
         body.appendChild(containerElement)
         containerElement.appendChild(containerStyleElement)
         containerElement.appendChild(collectionElement)
-        
-        // collectionElement.appendChild(arrowContainer)
-        
+                
         collectionElement.appendChild(arrowLeft)
         collectionElement.appendChild(arrowRight)
         
         containerStyleElement.appendChild(h2Element)
 
-        console.log(containerElement);
+        // console.log(containerElement);
+
     }
+
 }
 
 function chooseMusic() {
@@ -113,15 +115,15 @@ function chooseMusic() {
 
 function playCd(openCd) {
 
-    console.log(openCd);
-
-
     let imagemCd = openCd[2].querySelector('img').src
 
-    let allMusicsSpan = openCd[2].querySelector('span.musics')
+    let audio = openCd[2].querySelector('input').value
 
-    console.log(allMusicsSpan);
+    // console.log(openCd);
 
+    let arrayAudios = []
+
+    arrayAudios.push(audio.split(","))
     
     const containerCdElement = document.createElement('div')
     containerCdElement.classList.add('containerCd')
@@ -136,11 +138,39 @@ function playCd(openCd) {
     const containerMusicsElement = document.createElement('div')
     containerMusicsElement.classList.add('containerMusics')
 
-    // body.appendChild(containerCdElement)
-    // containerCdElement.appendChild(containerImagem)
-    // containerImagem.appendChild(image)
-    // containerCdElement.appendChild(containerMusicsElement)
+    // console.log(arrayAudios[0].length);
+
+    for (let index = 0; index < arrayAudios[0].length; index++) {
+       
+
+        arrayAudios.forEach(audio => {
+
+            const button = document.createElement('button')
+            button.classList.add('button')
+            button.innerHTML = audio[index]
+            button.id = audio[index]
+            console.log(button);
+            
+            containerMusicsElement.appendChild(button)
+
+            button.addEventListener("click", (e) =>{
+
+                tocar(e.target);
+            })
+        });
+    }
+    
+    body.appendChild(containerCdElement)
+    containerCdElement.appendChild(containerImagem)
+    containerImagem.appendChild(image)
+    containerCdElement.appendChild(containerMusicsElement)    
 
     console.log(containerCdElement);
     
+}
+
+function tocar(e) {
+
+    let play = document.getElementById(e.id);
+    play.play();
 }

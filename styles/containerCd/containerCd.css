@@ -32,9 +32,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: blueviolet;
-  height: 100px;
-  width: 100px;
 }
 
 .containerCd .containerMusics .button {
