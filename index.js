@@ -164,7 +164,3 @@ function playCd(openCd) {
     containerCdElement.appendChild(containerMusicsElement)    
 }
 
-function stopMusics() {
-
-
-}
